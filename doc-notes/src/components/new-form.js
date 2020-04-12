@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const NewNoteDiv = styled.div`
   form {
-    ${'' /* border: 1px solid red; */}
+    ${"" /* border: 1px solid red; */}
     background-color: #F3F3F3;
     display: flex;
     flex-direction: column;
@@ -42,50 +42,66 @@ const NewNoteDiv = styled.div`
 `;
 
 export default class NewForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      body: '',
-      id: '',
-      count:  props.count,
-    }
+      title: "",
+      body: "",
+      id: "",
+      count: props.count,
+    };
   }
 
   sendToApp = (e) => {
-    console.log(this.props)
+    console.log(this.props);
     if (this.props.button === "Create") {
       this.props.newNote(this.state);
     } else {
       this.props.editNote(this.state);
     }
     this.setState({
-      title: '',
-      body: '',
-    })
-  }
+      title: "",
+      body: "",
+    });
+  };
 
   inputHandler = (e) => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
       id: this.state.count,
-    })
-  }
+    });
+  };
 
   render() {
     return (
-        <NewNoteDiv>
-          <form onSubmit={this.sendToApp}>
-            <input className="input" id="title"
-              onChange={this.inputHandler}
-              name='title' value={this.state.title} placeholder="Note Title">{this.value}</input>
-            <textarea className="input" id="body"
-              name='body'
-              onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</textarea>
-            <Link className="menu-item" onClick={this.sendToApp} to="/all-notes">{this.props.button}</Link>
-          </form>
-        </NewNoteDiv>
+      <NewNoteDiv>
+        <form onSubmit={this.sendToApp}>
+          <input
+            className="input"
+            id="title"
+            onChange={this.inputHandler}
+            name="title"
+            value={this.state.title}
+            placeholder="Note Title"
+          >
+            {this.value}
+          </input>
+          <textarea
+            className="input"
+            id="body"
+            name="body"
+            onChange={this.inputHandler}
+            value={this.state.body}
+            placeholder="Note Content"
+          >
+            {this.value}
+          </textarea>
+          <Link className="menu-item" onClick={this.sendToApp} to="/all-notes">
+            {this.props.button}
+          </Link>
+        </form>
+      </NewNoteDiv>
     );
   }
 }

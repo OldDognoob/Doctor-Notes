@@ -14,6 +14,7 @@ const NewNoteDiv = styled.div`
     margin: 0 0 10px 10px;
   }
 `;
+
 export default class NewNote extends Component {
   constructor(props) {
     super(props);
@@ -22,11 +23,12 @@ export default class NewNote extends Component {
       count: props.count,
     };
   }
+
   render() {
     console.log(this.props.count);
     return (
       <NewNoteDiv>
-        <h4>Create a new Note:</h4>
+        <h4>Create New Note:</h4>
         <NewForm
           button="Create"
           count={this.props.count}

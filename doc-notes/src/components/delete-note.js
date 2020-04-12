@@ -2,55 +2,68 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const DeleteNoteDiv = styledDiv`
-    background:white;
+const DeleteNoteDiv = styled.div`
+ 
+    background: white;
     padding: 40px 100px;
-    margin:250px;
-    height: 100vh;
+    margin: 250px;
+    height: 100vh:
+   
     z-index: 10;
+    position:fixed;
+    top: 0;
+    left: 0;
     display: flex;
-    fle-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid gray;
     .inner-div {
-        padding: 0 100px;
-        width: 100%;
-        display: flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items: center;
-    }
-    h4{
+     
+      padding: 0 100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h4 {
+       
         text-align: center;
         font-weight: normal;
-    }
-    delete-buttons {
+      }
+      .delete-buttons {
+      
         width: 100%;
         display: flex;
-        flex-direction:row;
-        justify-content:space-around;
+        flex-direction: row;
+        justify-content: space-around;
         align-items: space-between;
+        .button {
+        
+          padding: 10px;
+          width: 80%;
+          margin: 0 20px
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+          border: 1px solid lightgray;
+        }
+        #no {
+          background-color: #2AC0C4;
+        }
+        #delete {
+          background-color: red;
+        }
+
     }
-    .button{
-        padding:10px;
-        with:80%;
-        margin:0 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        border: 1px solid lightgray;
     }
-    #no {
-        background-color: #2AC0C4;
-      }
-      #delete {
-        background-color: red;
-      }
+
+
 `;
+
 export default class DeleteNote extends Component {
   constructor(props) {
     super(props);
@@ -58,9 +71,11 @@ export default class DeleteNote extends Component {
       note: this.props.note,
     };
   }
+
   deleteHandler = (e) => {
     this.props.deleteNote(this.state.note.id);
   };
+
   render() {
     console.log(this);
     return (

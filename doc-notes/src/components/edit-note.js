@@ -26,6 +26,7 @@ const EditNoteDiv = styled.div`
     margin-bottom: 10px;
   }
 `;
+
 export default class EditNote extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +35,9 @@ export default class EditNote extends Component {
       count: props.count,
     };
   }
+
   sendToApp = () => {};
+
   render() {
     return (
       <EditNoteDiv>

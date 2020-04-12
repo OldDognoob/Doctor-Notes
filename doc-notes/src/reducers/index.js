@@ -1,7 +1,6 @@
 //reducers
-import { FETCHING_NOTES, NOTES_RECIEVED, ERROR } from "../actions";
 
-//create one reducer function per slice of state
+import { FETCHING_NOTES, NOTES_RECIEVED, ERROR } from "../actions";
 
 const initialState = {
   notes: [],
@@ -12,21 +11,22 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCHING_NOTES:
+    case FETCHING_NOTES:
       return Object.assign({}, state, {
         fetchingNotes: true,
       });
-    case types.NOTES_RECIEVED:
+    case NOTES_RECIEVED:
       return Object.assign({}, state, {
         fetchingNotes: false,
-        notesRecieved: false,
+        notesRecieved: true,
         notes: action.payload,
       });
-    case types.ERROR:
+    case ERROR:
       return Object.assign({}, state, {
         fetchingNotes: false,
         notesRecieved: false,
-        error: action.payload,
+        error: true,
+        status: action.payload,
       });
     default:
       return state;

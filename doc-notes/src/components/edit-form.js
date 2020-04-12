@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-rooter-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const EditFormDiv = styled.div`
   form {
-    ${"" /* border: 1px solid blue; */}
+
     background-color: #F3F3F3;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@ const EditFormDiv = styled.div`
       line-height: 20px;
     }
     .menu-item {
-      ${"" /* border: 1px solid red; */}
+  
       width: 30%;
       padding: 15px;
       margin: 5px;
@@ -38,6 +38,7 @@ const EditFormDiv = styled.div`
     }
   }
 `;
+
 export default class EditForm extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,8 @@ export default class EditForm extends Component {
       count: props.count,
     };
   }
-  sentToApp = (e) => {
+
+  sendToApp = (e) => {
     console.log(this.props);
     if (this.props.button === "Create") {
       this.props.newNote(this.state);
@@ -60,12 +62,14 @@ export default class EditForm extends Component {
       body: "",
     });
   };
+
   inputHandler = (e) => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
+
   render() {
     return (
       <EditFormDiv>
